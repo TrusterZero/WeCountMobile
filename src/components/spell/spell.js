@@ -1,64 +1,47 @@
 import React, {Component} from 'react';
-import {View, Image, Text, TouchableHighlight} from 'react-native'
-import { Event } from '../../socket/socket'
+import {View, Image, Text, TouchableHighlight, StyleSheet} from 'react-native'
+import {Event} from '../../socket/socket'
 import * as Socket from '../../socket/socket'
+import Countdown from '../countdown/countdown'
+
 
 class Spell extends Component {
     spellImageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/'
 
     constructor() {
         super();
-
-        Socket.listen(Event.sumUsed, (cooldownActivationData) => this.startCooldown(cooldownActivationData));
     }
 
-    startCooldown(cooldownActivationData) {
-        console.log('hoi')
-        if(cooldownActivationData.spellId !== this.spell.id ) {
-            return;
-        }
-        this.counter = setInterval(() => {
-            this.decrementCountdown();
-        },1000)
-    }
-
-    componentWillMount(){
-        this.spell = this.props.spell;
-        this.setState({countdown: this.spell.cooldown})
-    }
-
-    decrementCountdown() {
-
-        if(this.state.countdown <= 0){
-            this.resetCountdown();
-            return;
-        }
-        this.setState({ countdown: this.state.countdown-1});
-    }
-
-    resetCountdown() {
-        clearInterval(this.counter);
-        this.setState({ countdown: this.spell.cooldown });
-    }
-
-    sumUsed() {
-        Socket.send(Event.startCooldown,{spellId: this.spell.id, timeStamp: Date.now()})
+    sumTell() {
+        Socket.send(Event.startCooldown, {spellId: this.props.spell.id, timeStamp: Date.now()})
     }
 
     render() {
 
         return (
-            <View>
-                <TouchableHighlight onPress={() => this.sumUsed()}>
-                <Image
-                    style={{width: 150, height: 150}}
-                    source={{uri: `${this.spellImageUrl}${this.spell.image}`}}
-                />
-                </TouchableHighlight>
-                <Text>{this.state.countdown}</Text>
-            </View>)
+            <TouchableHighlight style={{borderRadius:100}} onPress={() => this.sumTell()}>
+                <View style={styles.container}>
+
+                    <Image
+                        style={styles.image}
+                        source={{uri: `${this.spellImageUrl}${this.props.spell.image}`}}
+                    />
+
+                    <Countdown spellId={this.props.spell.id} cooldown={this.props.spell.cooldown}/>
+                </View>
+            </TouchableHighlight>)
     }
 
 }
+
+const styles = StyleSheet.create({
+    container: {},
+    image: {
+        margin: 5,
+        width: 150,
+        height: 150,
+        borderRadius:100,
+    }
+});
 
 export default Spell

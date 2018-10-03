@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Image, Text} from 'react-native'
+import {View, Image, StyleSheet} from 'react-native'
 import Spell from '../spell/spell'
 
 
@@ -33,16 +33,28 @@ class Summoner extends Component {
     render() {
         this.summoner = this.props.summoner;
         return (
-            <View>
+            <View style={styles.summoner}>
                 <Image
-                    style={{width: 100, height: 100}}
+                    style={styles.image}
                     source={{uri: `${this.champImageUrl}${this.summoner.champion.image}`}}
                 />
-                {<Spell spell={this.summoner.spell1}/>}
+                <Spell spell={this.summoner.spell1}/>
                 <Spell spell={this.summoner.spell2}/>
             </View>)
     }
 }
 
+styles = StyleSheet.create({
+    summoner: {
+        flexDirection:'row',
+    },
+    image: {
+        marginTop:25,
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        borderWidth: 3
+    }
+})
 
 export default Summoner

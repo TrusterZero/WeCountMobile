@@ -25,7 +25,6 @@ export function send(event, data) {
         roomId: roomId,
         data
     }
-    console.log(payload)
     socket.emit(event, payload);
 }
 

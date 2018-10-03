@@ -1,39 +1,83 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View, Button} from 'react-native';
-import {Event} from './src/socket/socket'
+import {StyleSheet, ImageBackground, BackHandler, Alert} from 'react-native';
 import Login from "./src/components/login";
-import Summoner from './src/components/summoner/summoner'
-import * as Socket from "./src/socket/socket";
+import MatchScreen from "./src/components/matchScreen/matchScreen"
+import * as dataManager from "./src/dataManager/dataManager";
+
 
 export default class App extends React.Component {
-    state = {}
+
+    state = {
+        summonerName: null,
+        region: null,
+        loggedIn: false,
+    };
 
 
     constructor() {
         super();
-        Socket.listen(Socket.Event.requestError, (error) => alert(error.status));
-        Socket.listen(Event.matchCreated, (match) => {
-            console.log(Socket)
-            this.setState({match: match})
-        });
     }
 
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBack);
+        this.fetchSummonerInfo()
+    }
+
+    updateSummonerInfo(summonerInfo) {
+        console.log(summonerInfo)
+        this.setState({
+            summonerName: summonerInfo.summonerName,
+            region: summonerInfo.region,
+            loggedIn: summonerInfo.loggedIn
+        })
+    }
+
+    fetchSummonerInfo() {
+        dataManager.get('summonerName').then((value) => {
+            this.setState({summonerName: value});
+            this.autoLogin();
+        });
+        dataManager.get('region').then((value) => {
+            this.setState({region: value})
+            this.autoLogin();
+        });
+    }
+                            
+    autoLogin() {
+        if (this.state.summonerName !== null && this.state.region !== null) {
+            this.setState({
+                loggedIn: true
+            })
+        }
+    }
+
+    handleBack() {
+        Alert.alert(
+            'We Count',
+            'Are you sure you want to leave We Count?',
+            [{text: 'OK', onPress: () => BackHandler.exitApp()},
+                {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+            ],
+            {cancelable: true}
+        )
+        return true;
+    }
 
     render() {
         return (
-            <View style={styles.container}>
-                {this.state.match ?
-                    this.state.match.summoners.map((summoner) => {
-                    return <Summoner key={summoner.id} summoner={summoner}/>
-                }) : <Login/>}
+            <ImageBackground source={require('./assets/background-image.jpg')} style={styles.container}>
 
-            </View>
+                {this.state.loggedIn ? <MatchScreen summonerInfo={this.state}/> :
+                    <Login updateSummonerInfo={this.updateSummonerInfo.bind(this)}/>}
+
+            </ImageBackground>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
+        zIndex: 100,
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
