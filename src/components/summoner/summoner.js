@@ -4,7 +4,7 @@ import Spell from '../spell/spell'
 
 
 class Summoner extends Component {
-    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/'
+    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.19.1/img/champion/'
 
     state = {
         id: 91096947,

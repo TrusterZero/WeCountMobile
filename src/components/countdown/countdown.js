@@ -8,11 +8,16 @@ class Countdown extends Component {
 
     constructor() {
         super();
-        Socket.listen(Event.sumUsed, (cooldownActivationData) => this.startCountdown(cooldownActivationData));
     }
 
     componentWillMount() {
         this.setState({countdown: this.props.cooldown});
+        Socket.listen(Event.sumUsed, (cooldownActivationData) => this.startCountdown(cooldownActivationData));
+    }
+
+    componentWillUnmount(){
+        Socket.stop(Event.sumUsed);
+        clearInterval(this.counter);
     }
 
     startCountdown(cooldownActivationData) {

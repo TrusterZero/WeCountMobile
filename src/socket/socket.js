@@ -28,6 +28,10 @@ export function send(event, data) {
     socket.emit(event, payload);
 }
 
+export function stop(event) {
+    socket.removeListener(event);
+}
+
 listen('connect', () => console.log('connected'))
 listen(Event.matchCreated, (match) => {
     roomId = match.id

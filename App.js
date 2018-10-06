@@ -51,6 +51,20 @@ export default class App extends React.Component {
         }
     }
 
+    logOut() {
+        dataManager.store('summonerName',null).then(()=>{
+            dataManager.get('summonerName').then((value) => {
+                console.log(value);
+            })
+        });
+        dataManager.store('region', null);
+        this.setState({
+            summonerName: null,
+            region: null,
+            loggedIn: false
+        })
+    }
+
     handleBack() {
         Alert.alert(
             'We Count',
@@ -67,7 +81,7 @@ export default class App extends React.Component {
         return (
             <ImageBackground source={require('./assets/background-image.jpg')} style={styles.container}>
 
-                {this.state.loggedIn ? <MatchScreen summonerInfo={this.state}/> :
+                {this.state.loggedIn ? <MatchScreen logOut={this.logOut.bind(this)} summonerInfo={this.state}/> :
                     <Login updateSummonerInfo={this.updateSummonerInfo.bind(this)}/>}
 
             </ImageBackground>

@@ -8,7 +8,7 @@ import * as dataManager from "../../dataManager/dataManager";
 class Login extends Component {
     state = {
         summonerName: '',
-        region: ''
+        region: 'EUW'
     }
 
     constructor(){
@@ -17,9 +17,7 @@ class Login extends Component {
 
     login = () => {
         this.renewSummonerInfo();
-
-        const summonerName = this.state.summonerName;
-        if (summonerName === '') {
+        if (this.state.summonerName === '' || this.state.region === '') {
             alert('Please fill in summonername');
             return;
         }
@@ -29,9 +27,10 @@ class Login extends Component {
             region: this.state.region,
             loggedIn: true
         })
-    }
+    };
 
     renewSummonerInfo() {
+        console.log(this.state)
         dataManager.store('summonerName', this.state.summonerName)
         dataManager.store('region', this.state.region)
     }

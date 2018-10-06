@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, TouchableHighlight, TouchableOpacity, Animated, Button} from 'react-native'
+import {View, StyleSheet, Text, Image, TouchableHighlight, TouchableOpacity} from 'react-native'
+import {Header, Icon} from 'react-native-elements'
 import {Event} from '../../socket/socket'
 import SummonerList from '../summonerList/summonerList'
 import * as Socket from '../../socket/socket';
@@ -30,7 +31,16 @@ export default class MatchScreen extends React.Component {
 
     render() {
         return (
+
             <View style={styles.container}>
+                <View style={styles.headerHolder}>
+                <Header
+                    backgroundColor={'#551A8B'}
+                    outerContainerStyles={{width:'100%'}}
+                    centerComponent={{ text: 'We Count', style: { color: '#fff' } }}
+                    rightComponent={{ icon: 'exit-to-app', color: '#fff', onPress: () => this.props.logOut(),}}
+                />
+            </View>
                 {this.state.match ? <SummonerList summoners={this.state.match.summoners}/> :
                     <View style={styles.summonerList}>
                         <TouchableHighlight underlayColor={'transparent'} activeOpacity={0.8}
@@ -106,6 +116,18 @@ const styles = StyleSheet.create({
         top: 0,
         left: '-50%',
         right: '-50%',
+        bottom: 0,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start'
+    },
+    header: {
+        width:'150%',
+    },
+    headerHolder: {
+        width:'100%',
+        flexDirection: 'row',
+        position: 'absolute',
+        top: 0,
         bottom: 0,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'

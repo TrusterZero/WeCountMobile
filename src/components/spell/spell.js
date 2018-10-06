@@ -6,7 +6,7 @@ import Countdown from '../countdown/countdown'
 
 
 class Spell extends Component {
-    spellImageUrl = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/img/spell/'
+    spellImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.19.1/img/spell/'
 
     constructor() {
         super();
