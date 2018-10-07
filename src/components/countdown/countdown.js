@@ -48,7 +48,7 @@ class Countdown extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {this.state.countdown != this.props.cooldown ?
+                {this.state.countdown !== this.props.cooldown ?
                     <Text style={styles.text}>{this.state.countdown}</Text> : null}
             </View>
         )

@@ -6,28 +6,7 @@ import Spell from '../spell/spell'
 class Summoner extends Component {
     champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.19.1/img/champion/'
 
-    state = {
-        id: 91096947,
-        champion: {
-            id: 17,
-            image: 'Teemo.png',
-            name: 'teemo'
-        },
-        hasCDR: false,
-        spell1: {
-            id: 14,
-            cooldown: [210],
-            image: 'SummonerDot.png',
-            name: 'Ignite'
-        },
-        spell2: {
-            id: 4,
-            cooldown: [300],
-            image: 'SummonerFlash.png',
-            name: 'Flash'
-        }
-
-    }
+    state = { }
 
 
     render() {

@@ -30,7 +30,6 @@ class Login extends Component {
     };
 
     renewSummonerInfo() {
-        console.log(this.state)
         dataManager.store('summonerName', this.state.summonerName)
         dataManager.store('region', this.state.region)
     }

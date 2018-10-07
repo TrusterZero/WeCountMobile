@@ -3,7 +3,7 @@ import {StyleSheet, ImageBackground, BackHandler, Alert} from 'react-native';
 import Login from "./src/components/login";
 import MatchScreen from "./src/components/matchScreen/matchScreen"
 import * as dataManager from "./src/dataManager/dataManager";
-
+import * as Socket from './src/socket/socket'
 
 export default class App extends React.Component {
 
@@ -19,6 +19,7 @@ export default class App extends React.Component {
     }
 
     componentWillMount() {
+        Socket.listen(Socket.Event.requestError, (error) => this.handleError(error))
         BackHandler.addEventListener('hardwareBackPress', this.handleBack);
         this.fetchSummonerInfo()
     }
@@ -52,12 +53,12 @@ export default class App extends React.Component {
     }
 
     logOut() {
-        dataManager.store('summonerName',null).then(()=>{
+        dataManager.store('summonerName', '').then(()=>{
             dataManager.get('summonerName').then((value) => {
                 console.log(value);
             })
         });
-        dataManager.store('region', null);
+        dataManager.store('region', '');
         this.setState({
             summonerName: null,
             region: null,
@@ -75,6 +76,17 @@ export default class App extends React.Component {
             {cancelable: true}
         )
         return true;
+    }
+
+    handleError(error) {
+        if(error.message === 'websocket error'){
+            return;
+        }
+        console.log(error)
+        if(error.status === Socket.ErrorCode.summonerNotFound){
+            this.logOut();
+        }
+        alert(error.message)
     }
 
     render() {
