@@ -25,7 +25,6 @@ export default class App extends React.Component {
     }
 
     updateSummonerInfo(summonerInfo) {
-        console.log(summonerInfo)
         this.setState({
             summonerName: summonerInfo.summonerName,
             region: summonerInfo.region,
@@ -92,10 +91,8 @@ export default class App extends React.Component {
     render() {
         return (
             <ImageBackground source={require('./assets/background-image.jpg')} style={styles.container}>
-
                 {this.state.loggedIn ? <MatchScreen logOut={this.logOut.bind(this)} summonerInfo={this.state}/> :
                     <Login updateSummonerInfo={this.updateSummonerInfo.bind(this)}/>}
-
             </ImageBackground>
         );
     }
