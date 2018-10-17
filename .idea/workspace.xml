@@ -3,12 +3,14 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/App.js" line="8" />
     <bookmark url="file://$PROJECT_DIR$/src/components/spell/spell.js" line="27" />
-    <bookmark url="file://$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" line="16" />
+    <bookmark url="file://$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" line="18" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af064bb6-b139-4410-8cad-c00e42c7ae3f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/endMatchButton/endMatchButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/socket/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/socket/socket.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,21 +27,21 @@
         <counts>
           <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="564375481" value="1" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="42" />
+          <entry key="js" value="44" />
           <entry key="json" value="6" />
           <entry key="ts" value="9" />
         </counts>
@@ -48,14 +50,14 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="38" />
+          <entry key="JavaScript" value="40" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="TypeScript" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="16287" />
+          <entry key="js" value="16822" />
           <entry key="json" value="6" />
           <entry key="ts" value="19" />
         </counts>
@@ -63,7 +65,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="16243" />
+          <entry key="JavaScript" value="16778" />
           <entry key="PLAIN_TEXT" value="44" />
           <entry key="TypeScript" value="19" />
         </counts>
@@ -77,23 +79,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/login/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/matchScreen/matchScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            <state relative-caret-position="385">
+              <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -102,19 +92,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dataManager/dataManager.js">
+        <entry file="file://$PROJECT_DIR$/src/components/startMatchButton/startMatchButton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="323">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#67#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/endMatchButton/endMatchButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="70" selection-start-line="1" selection-start-column="70" selection-end-line="1" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/socket/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="459">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -122,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="98" column="1" lean-forward="true" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+            <state relative-caret-position="555">
+              <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -146,7 +151,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/spell/spell.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="459">
               <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -222,12 +227,14 @@
         <option value="$PROJECT_DIR$/src/dataManager/dataManager.js" />
         <option value="$PROJECT_DIR$/src/components/summonerList/summonerList.js" />
         <option value="$PROJECT_DIR$/src/components/spell/spell.js" />
-        <option value="$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" />
         <option value="$PROJECT_DIR$/src/components/summoner/summoner.js" />
         <option value="$PROJECT_DIR$/src/components/login/index.js" />
         <option value="$PROJECT_DIR$/src/components/countdown/countdown.js" />
-        <option value="$PROJECT_DIR$/src/socket/socket.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/src/socket/socket.js" />
+        <option value="$PROJECT_DIR$/src/components/startMatchButton/startMatchButton.js" />
+        <option value="$PROJECT_DIR$/src/components/endMatchButton/endMatchButton.js" />
+        <option value="$PROJECT_DIR$/src/components/matchScreen/matchScreen.js" />
       </list>
     </option>
   </component>
@@ -247,9 +254,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="1548" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-10" />
+    <option name="width" value="1549" />
     <option name="height" value="870" />
   </component>
   <component name="ProjectView">
@@ -257,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,20 +294,6 @@
               <item name="WeCountMobile" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeCountMobile" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="spell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeCountMobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeCountMobile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="summoner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeCountMobile" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeCountMobile" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dataManager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -312,24 +306,23 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sumcounter-fr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Jurmen Hughes\Documents\GitHub\WeCountMobile\src" />
-      <recent name="C:\Users\Jurmen Hughes\Documents\GitHub\WeCountMobile\src\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jurmen Hughes\Documents\GitHub\WeCountMobile\src\navigator" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jurmen Hughes\Documents\GitHub\WeCountMobile\src\components" />
+      <recent name="C:\Users\Jurmen Hughes\Documents\GitHub\WeCountMobile\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -366,16 +359,19 @@
       <workItem from="1538915939216" duration="1408000" />
       <workItem from="1538998296297" duration="1604000" />
       <workItem from="1539000516023" duration="1586000" />
+      <workItem from="1539619738182" duration="2645000" />
+      <workItem from="1539690631898" duration="1360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138744000" />
+    <option name="totallyTimeSpent" value="142749000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24479167" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19441517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -390,7 +386,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.42255005" side_tool="true" weight="0.39696312" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5774499" visible="true" weight="0.38736263" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5774499" visible="true" weight="0.30911064" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -490,6 +486,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/socket/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/summoner/summoner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/spell/spell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/countdown/countdown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
@@ -514,50 +537,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/matchScreen/matchScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/summoner/summoner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/spell/spell.js">
+    <entry file="file://$PROJECT_DIR$/src/components/startMatchButton/startMatchButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/endMatchButton/endMatchButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="70" selection-start-line="1" selection-start-column="70" selection-end-line="1" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="98" column="1" lean-forward="true" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+        <state relative-caret-position="555">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/socket/socket.js">
+    <entry file="file://$PROJECT_DIR$/src/components/matchScreen/matchScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="385">
+          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

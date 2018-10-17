@@ -1,4 +1,5 @@
 const io = require('socket.io-client');
+const serverIP = 'http://18.217.193.138:3000'
 
 export const Event = Object.freeze({
     startCooldown: 'startCooldown',
@@ -23,7 +24,7 @@ export const Source = Object.freeze({
     mobile: 1
 })
 
-const socket = io('http://192.168.178.150:3000');
+const socket = io(serverIP);
 let roomId = null;
 
 export function listen(event, callback) {
