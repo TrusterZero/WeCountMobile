@@ -11,6 +11,7 @@ export async function store(key,data){
 
 export async function get(key) {
         return await AsyncStorage.getItem(key, (error)  => {
+            console.log(error)
             return null;
         });
 }

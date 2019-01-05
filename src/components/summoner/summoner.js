@@ -1,39 +1,46 @@
 import React, {Component} from 'react'
-import {View, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet} from 'react-native'
 import Spell from '../spell/spell'
-
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 class Summoner extends Component {
-    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.19.1/img/champion/'
-
-    state = { }
-
+    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.21.1/img/champion/'
 
     render() {
-        this.summoner = this.props.summoner;
+        const {spell1, spell2, champion} = this.props.summoner;
+        const {containerS, portraitS} = styles;
+
         return (
-            <View style={styles.summoner}>
+            <View style={containerS}>
                 <Image
-                    style={styles.image}
-                    source={{uri: `${this.champImageUrl}${this.summoner.champion.image}`}}
+                    style={portraitS}
+                    source={{uri: `${this.champImageUrl}${champion.image}`}}
                 />
-                <Spell spell={this.summoner.spell1}/>
-                <Spell spell={this.summoner.spell2}/>
+                <Spell spell={spell1}/>
+                <Spell spell={spell2}/>
             </View>)
     }
 }
 
-styles = StyleSheet.create({
-    summoner: {
+const styles = StyleSheet.create({
+    containerS: {
+        display:"flex",
+        marginTop: hp('0.50%'),
         flexDirection:'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
-    image: {
-        marginTop:25,
-        width: 100,
-        height: 100,
+    portraitS: {
+        width: wp('23.5%'),
+        height: wp('23.5%'),
+        borderColor: 'gold',
+        marginTop: 15,
         borderRadius: 100,
-        borderWidth: 3
+        borderWidth: 2
     }
-})
+});
 
 export default Summoner

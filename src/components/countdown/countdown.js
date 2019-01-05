@@ -1,67 +1,95 @@
 import React, {Component} from 'react'
-import {Text, StyleSheet, View} from 'react-native'
+import {Text, StyleSheet, View, Vibration, AppState} from 'react-native'
 import * as Socket from "../../socket/socket";
 import {Event} from "../../socket/socket";
 
 class Countdown extends Component {
 
+    state = {
+        counting: false
+    }
 
     constructor() {
         super();
+        Socket.listen(Event.sumUsed, (cooldownActivationData) =>
+            this.startCountdown(cooldownActivationData, true));
+        Socket.listen(Event.spellHistory, (spellHistory) => this.checkHistory(spellHistory))
     }
 
-    componentWillMount() {
-        this.setState({countdown: this.props.cooldown});
-        Socket.listen(Event.sumUsed, (cooldownActivationData) => this.startCountdown(cooldownActivationData));
-    }
+
 
     componentWillUnmount(){
-        Socket.stop(Event.sumUsed);
         clearInterval(this.counter);
+        Socket.stop(Event.sumUsed);
+        Socket.stop(Event.spellHistory);
     }
 
-    startCountdown(cooldownActivationData) {
-        if (cooldownActivationData.spellId !== this.props.spellId) {
+    checkHistory(spellHistory) {
+        spellHistory.forEach((cooldownActivationData) => this.startCountdown(cooldownActivationData, false))
+    }
+
+    startCountdown(cooldownActivationData, vibrate) {
+
+        const {spellId, cooldown} = this.props;
+        //difference between now and moment that cooldown was started in seconds
+        const countdown = Math.ceil(cooldown - (Date.now() - cooldownActivationData.timeStamp) / 1000);
+
+        if (cooldownActivationData.spellId !== spellId) {
             return;
         }
-        if(this.state.countdown != this.props.cooldown){
+
+        if(this.state.counting || countdown <= 0){
             return;
         }
+
+        this.setState({counting: true});
+        this.setState({countdown: countdown - 1}); // instantly start cooldown for UX
+
+        if(vibrate){
+            Vibration.vibrate(250);
+        }
+
+        this.props.toggleCooldown(true);
         this.counter = setInterval(() => {
             this.decrementCountdown();
         }, 1000)
     }
 
     decrementCountdown() {
-        if (this.state.countdown <= 0) {
+        const countdown = this.state.countdown;
+
+        if (countdown <= 0) {
             this.resetCountdown();
             return;
         }
-        this.setState({countdown: this.state.countdown - 1});
+        this.setState({countdown: countdown - 1});
     }
 
     resetCountdown() {
         clearInterval(this.counter);
+        this.props.toggleCooldown(false);
+        this.setState({counting: false});
         this.setState({countdown: this.props.cooldown});
     }
 
     render() {
+        const {containerS, textS} = styles
+        const countdown = this.state.countdown;
+
         return (
-            <View style={styles.container}>
-                {this.state.countdown !== this.props.cooldown ?
-                    <Text style={styles.text}>{this.state.countdown}</Text> : null}
+            <View style={containerS}>
+                {countdown !== this.props.cooldown ?
+                    <Text style={textS}>{countdown}</Text> : null}
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        left: '50%',
-        top:'50%',
+    containerS: {
         position:'absolute',
     },
-    text: {
+    textS: {
         textAlign: 'center',
         color: 'white',
         fontWeight: 'bold',

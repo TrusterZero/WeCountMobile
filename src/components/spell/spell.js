@@ -3,44 +3,78 @@ import {View, Image, Text, TouchableHighlight, StyleSheet} from 'react-native'
 import {Event} from '../../socket/socket'
 import * as Socket from '../../socket/socket'
 import Countdown from '../countdown/countdown'
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 
 class Spell extends Component {
-    spellImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.19.1/img/spell/'
+    spellImageUrl = 'https://ddragon.leagueoflegends.com/cdn/8.21.1/img/spell/'
+
+    state = {
+        onCooldown: false,
+    }
 
     constructor() {
         super();
+
     }
 
     sumTell() {
         Socket.send(Event.startCooldown, {spellId: this.props.spell.id, timeStamp: Date.now()})
     }
 
+    toggleCooldown(onCooldown){
+        this.setState({onCooldown})
+    }
+
+
     render() {
+        const onCooldown = this.state.onCooldown;
+        const spell = this.props.spell;
+        const {containerS, imageS, onCooldownS, holderS} = styles
 
         return (
-            <TouchableHighlight style={{borderRadius:100}} onPress={() => this.sumTell()}>
-                <View style={styles.container}>
+            <TouchableHighlight style={containerS} onPress={() => this.sumTell()}>
+                <View style={holderS} >
 
                     <Image
-                        style={styles.image}
-                        source={{uri: `${this.spellImageUrl}${this.props.spell.image}`}}
+                        style={ onCooldown? [imageS, onCooldownS] : imageS}
+                        source={{uri: `${this.spellImageUrl}${spell.image}`}}
                     />
 
-                    <Countdown spellId={this.props.spell.id} cooldown={this.props.spell.cooldown}/>
+                    <Countdown toggleCooldown={this.toggleCooldown.bind(this)} spellId={spell.id} cooldown={spell.cooldown}/>
                 </View>
             </TouchableHighlight>)
     }
 
+    componentWillUnmount(){
+        Socket.stop(Event.sumUsed);
+    }
 }
 
 const styles = StyleSheet.create({
-    container: {},
-    image: {
-        margin: 5,
-        width: 150,
-        height: 150,
+    containerS: {
+        width: wp('26%'),
+        height: wp('26%'),
         borderRadius:100,
+    },
+    imageS: {
+        borderColor: 'white',
+        borderWidth: 2,
+        width: wp('26%'),
+        height: wp('26%'),
+        borderRadius: 100
+    },
+    onCooldownS: {
+        opacity:0.5
+    },
+    holderS: {
+        borderRadius: 100,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });
 

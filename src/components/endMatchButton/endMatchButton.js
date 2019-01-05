@@ -1,5 +1,10 @@
 import React from 'react';
 import {Text, TouchableOpacity, View, StyleSheet} from "react-native";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
+
 
 export default class EndMatchButton extends React.Component {
 
@@ -25,8 +30,8 @@ const styles = StyleSheet.create({
         textShadowRadius: 10
     },
     button: {
-        paddingTop: 20,
-        paddingBottom: 20,
+        paddingTop: hp('2.5%'),
+        paddingBottom: hp('2.5%'),
         width: '100%',
         flex: 1,
         backgroundColor: 'red',
