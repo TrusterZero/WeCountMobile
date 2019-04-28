@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import {Text, StyleSheet, View, Vibration, AppState} from 'react-native'
 import * as Socket from "../../socket/socket";
 import {Event} from "../../socket/socket";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp
+} from 'react-native-responsive-screen';
 
 class Countdown extends Component {
 
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontWeight: 'bold',
-        fontSize:40,
+        fontSize: hp('5%'),
         textShadowColor: 'rgba(0, 0, 0, 1)',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 10

@@ -8,13 +8,13 @@ import {
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
-
+const spellSizeinPercentage = '23%';
 class Spell extends Component {
-    spellImageUrl = 'https://ddragon.leagueoflegends.com/cdn/8.21.1/img/spell/'
+    spellImageUrl = 'https://ddragon.leagueoflegends.com/cdn/9.2.1/img/spell/'
 
     state = {
         onCooldown: false,
-    }
+    };
 
     constructor() {
         super();
@@ -56,15 +56,15 @@ class Spell extends Component {
 
 const styles = StyleSheet.create({
     containerS: {
-        width: wp('26%'),
-        height: wp('26%'),
+        width: wp(spellSizeinPercentage),
+        height: wp(spellSizeinPercentage),
         borderRadius:100,
     },
     imageS: {
         borderColor: 'white',
         borderWidth: 2,
-        width: wp('26%'),
-        height: wp('26%'),
+        width: wp(spellSizeinPercentage),
+        height: wp(spellSizeinPercentage),
         borderRadius: 100
     },
     onCooldownS: {

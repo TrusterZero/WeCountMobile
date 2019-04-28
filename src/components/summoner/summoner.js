@@ -6,8 +6,10 @@ import {
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
+const portraitSizeinPercentage = '22%';
+
 class Summoner extends Component {
-    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/8.21.1/img/champion/'
+    champImageUrl = 'http://ddragon.leagueoflegends.com/cdn/9.2.1/img/champion/'
 
     render() {
         const {spell1, spell2, champion} = this.props.summoner;
@@ -28,16 +30,15 @@ class Summoner extends Component {
 const styles = StyleSheet.create({
     containerS: {
         display:"flex",
-        marginTop: hp('0.50%'),
         flexDirection:'row',
         alignItems: 'center',
         justifyContent: 'space-between'
     },
     portraitS: {
-        width: wp('23.5%'),
-        height: wp('23.5%'),
+        width: wp(portraitSizeinPercentage),
+        height: wp(portraitSizeinPercentage),
         borderColor: 'gold',
-        marginTop: 15,
+        marginTop: wp('2%'),
         borderRadius: 100,
         borderWidth: 2
     }

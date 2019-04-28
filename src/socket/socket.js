@@ -27,12 +27,12 @@ export const ErrorCode = Object.freeze({
     unauthorized: 401,
     unhandled: 0,
     noSummoners: 1
-})
+});
 
 export const Source = Object.freeze({
     pc: 0,
     mobile: 1
-})
+});
 
 
 export let socket = io(serverIP);

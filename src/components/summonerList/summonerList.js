@@ -63,8 +63,10 @@ class SummonerList extends Component {
 
 const styles = StyleSheet.create({
     summonerList: {
+        paddingTop: hp('9.5%'),
+        alignSelf:'flex-start',
         width: '100%',
-        height: hp('80%'),
+        height: hp('60%'),
         display: 'flex',
         flexDirection:'column',
     }

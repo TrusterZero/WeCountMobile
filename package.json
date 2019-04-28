@@ -4,7 +4,10 @@
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "release": "cd android && gradlew assembleRelease && cd ../ && react-native run-android --variant=release",
+    "release::clean": "cd android && gradlew clean assembleRelease  && cd ../ && react-native run-android --variant=release"
+
   },
   "dependencies": {
     "expo-ads-admob": "^1.0.0",

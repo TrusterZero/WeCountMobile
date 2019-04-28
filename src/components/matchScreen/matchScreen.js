@@ -17,8 +17,8 @@ import {AdMobSettings} from "../../adMob/adMob";
 import * as dataManager from "../../dataManager/dataManager";
 
 
-AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-//AdMobInterstitial.setAdUnitID(AdMobSettings.adId)
+//AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
+AdMobInterstitial.setAdUnitID(AdMobSettings.adId)
 
 export default class MatchScreen extends React.Component {
 
@@ -37,10 +37,6 @@ export default class MatchScreen extends React.Component {
         super();
     }
 
-    componentWillUnmount() {
-        Socket.socket.removeListener(Event.matchCreated, this.handleMatchCreatedSocketEvent)
-    }
-
     componentDidMount(){
         console.log(this.props.summonerInfo);
         this.setState({
@@ -50,7 +46,9 @@ export default class MatchScreen extends React.Component {
         AdMobInterstitial.setTestDeviceID('EMULATOR');
         AdMobInterstitial.addEventListener('interstitialDidClose', () => this.setTeams(this.incomingMatch));
         AdMobInterstitial.addEventListener('interstitialDidFailToLoad', () => this.setTeams(this.incomingMatch));
-        Socket.socket.once(Event.matchCreated, (match) => this.handleMatchCreatedSocketEvent(match));
+        // To fix that nasty double event error
+        // Socket.socket.once(Event.matchCreated, (match) => this.handleMatchCreatedSocketEvent(match));
+        Socket.listen(Event.matchCreated, (match) => this.handleMatchCreatedSocketEvent(match));
         Socket.listen(Event.requestError, () => this.setState({loading: false}));
     }
 
@@ -64,18 +62,25 @@ export default class MatchScreen extends React.Component {
         this.setState({match: null, user: null})
     }
 
+    prepareStringForEvaluation(string) {
+        return string.toLowerCase().replace(/\s+/g, '')
+    }
+
     setTeams(match) {
         if (!match) {
             return;
         }
+        console.log(match);
 
         const {summonerName} = this.state;
         const summoners = match.summoners;
 
         // Get the info on the logged in user
-        const user = summoners.find((summoner) => summoner.name.toLowerCase() === summonerName.toLowerCase());
+        const user = summoners.find((summoner) => {
+            return this.prepareStringForEvaluation(summoner.name) === this.prepareStringForEvaluation(summonerName)
+        }
+        );
         const enemyTeam = [];
-
         if (!user) {
         // Nasty-fix: Deze component laad dubbel hierdoor krijg ik problemen op het luisteren naar events
             return;
@@ -119,7 +124,6 @@ export default class MatchScreen extends React.Component {
     }
 
     handleMatchCreatedSocketEvent(match) {
-        console.log(match);
         if (this.lastMatchId === match.id) {
             this.adShown = false;
             this.setTeams(match);
@@ -147,8 +151,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         position: 'absolute',
-        top: -15,
-        bottom: 0,
+        top: hp('-3.5%'),
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
     },
