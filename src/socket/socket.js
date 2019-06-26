@@ -1,8 +1,8 @@
 import {timer} from "rxjs";
 import * as dataManager from "../dataManager/dataManager";
 const io = require('socket.io-client');
-//const serverIP = 'http://18.217.193.138:3000';
-const serverIP = 'http://192.168.178.101:3000'; // Test server
+const serverIP = 'http://18.217.193.138:3000';
+ //const serverIP = 'http://192.168.178.45:3000'; // Test server
 
 export const Event = Object.freeze({
     heartBeat: 'heartBeat',

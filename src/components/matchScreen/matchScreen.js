@@ -18,7 +18,7 @@ import * as dataManager from "../../dataManager/dataManager";
 
 
 //AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
-AdMobInterstitial.setAdUnitID(AdMobSettings.adId)
+AdMobInterstitial.setAdUnitId(AdMobSettings.adId);
 
 export default class MatchScreen extends React.Component {
 
@@ -37,12 +37,12 @@ export default class MatchScreen extends React.Component {
         super();
     }
 
-    componentDidMount(){
-        console.log(this.props.summonerInfo);
+    componentDidMount() {
         this.setState({
             summonerName: this.props.summonerInfo.summonerName,
             region: this.props.summonerInfo.region
         });
+
         AdMobInterstitial.setTestDeviceID('EMULATOR');
         AdMobInterstitial.addEventListener('interstitialDidClose', () => this.setTeams(this.incomingMatch));
         AdMobInterstitial.addEventListener('interstitialDidFailToLoad', () => this.setTeams(this.incomingMatch));
@@ -55,7 +55,7 @@ export default class MatchScreen extends React.Component {
     getMatch() {
         const {summonerName, region} = this.state;
         this.setState({loading: true});
-        Socket.send(Event.createMatch, {summonerName,region});
+        Socket.send(Event.createMatch, {summonerName, region});
     }
 
     endMatch() {
@@ -77,12 +77,12 @@ export default class MatchScreen extends React.Component {
 
         // Get the info on the logged in user
         const user = summoners.find((summoner) => {
-            return this.prepareStringForEvaluation(summoner.name) === this.prepareStringForEvaluation(summonerName)
-        }
+                return this.prepareStringForEvaluation(summoner.name) === this.prepareStringForEvaluation(summonerName)
+            }
         );
         const enemyTeam = [];
         if (!user) {
-        // Nasty-fix: Deze component laad dubbel hierdoor krijg ik problemen op het luisteren naar events
+            //TODO Nasty-fix: Deze component laad dubbel hierdoor krijg ik problemen op het luisteren naar events
             return;
         }
 
@@ -114,7 +114,7 @@ export default class MatchScreen extends React.Component {
                         rightComponent={{icon: 'exit-to-app', color: '#fff', onPress: () => this.logOut(),}}
                     />
                 </View>
-                {loading ? <LoadingScreen text={'Getting Match Data'}/> : null}
+                {loading ? <LoadingScreen text={'Preparing Advertisement'}/> : null}
                 {/*{match ? <ActiveSummoners teamId={user ? user.teamId : 0}/> : null}*/}
                 {match ? <SummonerList adShown={this.adShown} endMatch={() => this.endMatch()} summoners={enemyTeam}/> :
                     <StartMatchImageButton getMatch={() => this.getMatch()}/>}
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        },
+    },
     headerHolderS: {
         width: '100%',
         flexDirection: 'row',

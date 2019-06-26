@@ -9,7 +9,7 @@ class Login extends Component {
     state = {
         summonerName: '',
         region: 'EUW'
-    }
+    };
 
     constructor(){
         super();
@@ -32,17 +32,17 @@ class Login extends Component {
     };
 
     renewSummonerInfo() {
-        dataManager.store('summonerName', this.state.summonerName)
-        dataManager.store('region', this.state.region)
+        dataManager.store('summonerName', this.state.summonerName);
+        dataManager.store('region', this.state.region);
     }
 
     componentDidMount() {
-        console.log(Object.values(this.props))
+        console.log(Object.values(this.props));
     }
 
     render() {
         const {summonerName, region} = this.state;
-        const {containerS, textS, formS, textInputS, iconS, pickerS, buttonS, buttonTextS} = styles
+        const {containerS, textS, formS, textInputS, iconS, pickerS, buttonS, buttonTextS} = styles;
 
         return (
             <KeyboardAvoidingView style={containerS} behavior={"padding"}>
@@ -51,6 +51,8 @@ class Login extends Component {
                 <Text style={textS}>Summoner</Text>
                 <View style={formS}>
                     <TextInput style={textInputS}
+                               placeholder={'summonername'}
+                               placeholderTextColor = {'#444'}
                                underlineColorAndroid={'transparent'}
                                value={summonerName}
                                onChangeText={(text) => this.setState({summonerName: text})}/>

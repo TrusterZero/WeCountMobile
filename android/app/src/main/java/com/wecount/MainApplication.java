@@ -3,15 +3,12 @@ package com.hughes.wecount;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.github.yamill.orientation.OrientationPackage;
-import com.corbt.keepawake.KCKeepAwakePackage;
 import com.sbugert.rnadmob.RNAdMobPackage;
-import expo.adapters.react.ModuleRegistryAdapter;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.corbt.keepawake.KCKeepAwakePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,11 +25,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new VectorIconsPackage(),
-            new OrientationPackage(),
-            new KCKeepAwakePackage(),
-            new RNAdMobPackage()
-           // new ModuleRegistryAdapter()
+            new RNAdMobPackage(),
+            new KCKeepAwakePackage()
       );
     }
 

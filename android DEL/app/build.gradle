@@ -154,7 +154,7 @@ android {
 dependencies {
     compile project(':react-native-orientation')
     compile project(':react-native-keep-awake')
-  //  compile project(':react-native-admob')
+    compile project(':react-native-admob')
     compile project(':expo-react-native-adapter')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
