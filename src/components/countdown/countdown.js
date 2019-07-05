@@ -3,7 +3,6 @@ import {Text, StyleSheet, View, Vibration, AppState} from 'react-native'
 import * as Socket from "../../socket/socket";
 import {Event} from "../../socket/socket";
 import {
-    widthPercentageToDP as wp,
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
@@ -11,7 +10,7 @@ class Countdown extends Component {
 
     state = {
         counting: false
-    }
+    };
 
     constructor() {
         super();
@@ -19,8 +18,6 @@ class Countdown extends Component {
             this.startCountdown(cooldownActivationData, true));
         Socket.listen(Event.spellHistory, (spellHistory) => this.checkHistory(spellHistory))
     }
-
-
 
     componentWillUnmount(){
         clearInterval(this.counter);
@@ -77,7 +74,7 @@ class Countdown extends Component {
     }
 
     render() {
-        const {containerS, textS} = styles
+        const {containerS, textS} = styles;
         const countdown = this.state.countdown;
 
         return (

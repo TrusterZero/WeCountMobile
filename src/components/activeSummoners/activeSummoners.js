@@ -12,7 +12,6 @@ class ActiveSummoners extends Component {
     }
     constructor() {
         super();
-
     }
 
     componentWillUnmount(){
@@ -30,7 +29,7 @@ class ActiveSummoners extends Component {
 
         const  activeTeamMates = activeSummoners.filter((summoner) =>
                summoner.teamId === this.props.teamId);
-        if(activeTeamMates.length > 0){
+        if(activeTeamMates !== this.state.activeTeamMates){
             this.setState({activeTeamMates: activeTeamMates})
         }
 
@@ -38,11 +37,10 @@ class ActiveSummoners extends Component {
 
     render() {
         const {containerS, portraitS} = styles;
-        const activeTeamMates = this.state.activeTeamMates;;
+        const activeTeamMates = this.state.activeTeamMates;
         console.log(activeTeamMates);
         return (
             <View style={containerS}>
-                {/*{activeTeamMates.map((summoner) =>*/}
                 {activeTeamMates.length > 0 ?
                         <Image
                                 key={activeTeamMates[0].id}

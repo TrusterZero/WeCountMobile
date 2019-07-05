@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Image, StyleSheet} from 'react-native'
 import Spell from '../spell/spell'
 import {
     widthPercentageToDP as wp,
-    heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
 const portraitSizeinPercentage = '22%';

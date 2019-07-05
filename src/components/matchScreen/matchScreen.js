@@ -10,11 +10,10 @@ import LoadingScreen from '../loadingScreen/loadingScreen'
 import ActiveSummoners from '../activeSummoners/activeSummoners'
 import {AdMobInterstitial} from 'react-native-admob'
 import {
-    widthPercentageToDP as wp,
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 import {AdMobSettings} from "../../adMob/adMob";
-import * as dataManager from "../../dataManager/dataManager";
+
 
 
 //AdMobInterstitial.setAdUnitID('ca-app-pub-3940256099942544/1033173712'); // Test ID, Replace with your-admob-unit-id
@@ -46,8 +45,7 @@ export default class MatchScreen extends React.Component {
         AdMobInterstitial.setTestDeviceID('EMULATOR');
         AdMobInterstitial.addEventListener('interstitialDidClose', () => this.setTeams(this.incomingMatch));
         AdMobInterstitial.addEventListener('interstitialDidFailToLoad', () => this.setTeams(this.incomingMatch));
-        // To fix that nasty double event error
-        // Socket.socket.once(Event.matchCreated, (match) => this.handleMatchCreatedSocketEvent(match));
+
         Socket.listen(Event.matchCreated, (match) => this.handleMatchCreatedSocketEvent(match));
         Socket.listen(Event.requestError, () => this.setState({loading: false}));
     }
@@ -70,7 +68,6 @@ export default class MatchScreen extends React.Component {
         if (!match) {
             return;
         }
-        console.log(match);
 
         const {summonerName} = this.state;
         const summoners = match.summoners;
@@ -80,6 +77,7 @@ export default class MatchScreen extends React.Component {
                 return this.prepareStringForEvaluation(summoner.name) === this.prepareStringForEvaluation(summonerName)
             }
         );
+
         const enemyTeam = [];
         if (!user) {
             //TODO Nasty-fix: Deze component laad dubbel hierdoor krijg ik problemen op het luisteren naar events
@@ -136,8 +134,6 @@ export default class MatchScreen extends React.Component {
             AdMobInterstitial.showAd();
         });
     }
-
-
 }
 
 const styles = StyleSheet.create({

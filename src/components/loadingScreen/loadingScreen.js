@@ -5,12 +5,10 @@ import {StyleSheet, View, Image, Text} from 'react-native'
 export default class loadingScreen extends React.Component {
 
     render() {
-        const {containerS, loadingImageS, textS} = styles;
+        const {containerS, textS} = styles;
 
         return(
             <View style={containerS}>
-                {/*<Image style={loadingImageS}*/}
-                        {/*source={require('../../../assets/loading.gif')}/>*/}
                         <Text style={textS}>{this.props.text}</Text>
             </View>
         )

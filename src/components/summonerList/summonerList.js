@@ -5,7 +5,6 @@ import KeepAwake from 'react-native-keep-awake';
 import * as Socket from "../../socket/socket";
 import {Event} from "../../socket/socket";
 import {
-    widthPercentageToDP as wp,
     heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 

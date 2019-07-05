@@ -18,7 +18,6 @@ class Spell extends Component {
 
     constructor() {
         super();
-
     }
 
     sumTell() {

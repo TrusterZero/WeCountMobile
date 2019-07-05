@@ -20,16 +20,15 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        Socket.listen(Socket.Event.requestError, (error) => this.handleError(error))
+        Socket.listen(Socket.Event.requestError, (error) => this.handleError(error));
         BackHandler.addEventListener('hardwareBackPress', this.handleBack);
-        this.fetchSummonerInfo()
+        this.fetchSummonerInfo();
     }
 
 
     updateSummonerInfo(summonerInfo) {
         const {summonerName, region, loggedIn} = summonerInfo;
-        this.setState({summonerName, region, loggedIn})
-        console.log(this.state)
+        this.setState({summonerName, region, loggedIn});
     }
 
     fetchSummonerInfo() {
@@ -62,13 +61,13 @@ export default class App extends React.Component {
     }
 
     logOut() {
-        dataManager.store('summonerName', '')
+        dataManager.store('summonerName', '');
         dataManager.store('region', '');
         this.setState({
             summonerName: null,
             region: null,
             loggedIn: false
-        })
+        });
     }
 
     handleBack() {
@@ -79,7 +78,7 @@ export default class App extends React.Component {
                 {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
             ],
             {cancelable: true}
-        )
+        );
         return true;
     }
 
@@ -87,7 +86,6 @@ export default class App extends React.Component {
         if (error.message === 'websocket error') {
             return;
         }
-        console.log(error)
         if (error.status === Socket.ErrorCode.summonerNotFound) {
             this.logOut();
         }
@@ -99,7 +97,7 @@ export default class App extends React.Component {
         const summonerInfo = this.state;
         return (
             <ImageBackground source={require('./assets/background-image.jpg')} style={containerS}>
-                {this.state.loggedIn ? <MatchScreen logOut={this.logOut.bind(this)} summonerInfo={summonerInfo}/> :
+                {summonerInfo.loggedIn ? <MatchScreen logOut={this.logOut.bind(this)} summonerInfo={summonerInfo}/> :
                     <Login updateSummonerInfo={this.updateSummonerInfo.bind(this)}/>}
             </ImageBackground>
         );
