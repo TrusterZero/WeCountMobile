@@ -17,7 +17,7 @@
     "expo-permissions-interface": "^1.2.0",
     "expo-react-native-adapter": "^1.2.0",
     "react": "^16.8.6",
-    "react-native": "^0.55.4",
+    "react-native": "^0.70.6",
     "react-native-admob": "^1.3.2",
     "react-native-elements": "^0.19.1",
     "react-native-keep-awake": "^3.2.0",
